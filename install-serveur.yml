@@ -1,0 +1,11 @@
+---
+- name: Installation smediawiki
+  hosts: serveur
+  roles:
+    - role: apache2
+
+- name: Installation MariaD"
+  hosts: serveur
+  roles:
+    - role: mariadb2
+
