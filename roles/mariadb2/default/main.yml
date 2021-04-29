@@ -1,9 +1,9 @@
 ---
-mysqluser.name: bob
-mysqluser.host: '%'
-mysqluser.password: bob10
-mysqluser.privileges: '*.*.ALL'
+mysqluser_name: bob
+mysqluser_host: '%'
+mysqluser_password: bob10
+mysqluser_privileges: '*.*.ALL'
 mariadb_user: root
 mariadb_password: root
-mysqldatabase.name: base1
+mysqldatabase_name: base1
 

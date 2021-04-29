@@ -31,10 +31,10 @@
 
 - name: manage users 
   ansible.builtin.mysql_user: 
-    name: '{{ mysqluser.name }}' 
-    host: '{{ mysqluser.host }}' 
-    password: '{{ mysqluser.password }}' 
-    priv: '{{ mysqluser.privileges }}' 
+    name: '{{ mysqluser_name }}' 
+    host: '{{ mysqluser_host }}' 
+    password: '{{ mysqluser_password }}' 
+    priv: '{{ mysqluser_privileges }}' 
     state: present 
     login_user: '{{ mariadb_user }}' 
     login_password: '{{ mariadb_password }}'
@@ -42,6 +42,6 @@
 
 - name: manage database
   ansible.builtin.mysql_db:
-    name: '{{ mysqldatabase.name }}'
+    name: '{{ mysqldatabase_name }}'
     state: present
   tags: mariadb
