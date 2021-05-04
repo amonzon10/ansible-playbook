@@ -1,0 +1,47 @@
+---
+- name: install required packages ocs inventory 
+  apt: 
+    name: 
+      - mariadb-server
+      - python-mysqldb
+      - python3-mysqldb 
+    state: present 
+  tags: mariadb
+
+- name: enable and start the service 
+  service: 
+    name: mysql 
+    state: started 
+    enabled: true 
+  tags: mariadb
+ 
+- name: set root password 
+  ansible.builtin.command: 'mysqladmin -u root password {{ mariadb_password }}' 
+  when: True 
+  tags: mariadb
+
+- name: remove user
+  ansible.builtin.mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
+    login_user: '{{ mariadb_user }}'
+    login_password: '{{ mariadb_password }}'
+  tags: mariadb
+
+- name: manage users 
+  ansible.builtin.mysql_user: 
+    name: '{{ mysqluser_name }}' 
+    host: '{{ mysqluser_host }}' 
+    password: '{{ mysqluser_password }}' 
+    priv: '{{ mysqluser_privileges }}' 
+    state: present 
+    login_user: '{{ mariadb_user }}' 
+    login_password: '{{ mariadb_password }}'
+  tags: mariadb
+
+- name: manage database
+  ansible.builtin.mysql_db:
+    name: '{{ mysqldatabase_name }}'
+    state: present
+  tags: mariadb

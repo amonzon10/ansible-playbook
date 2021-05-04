@@ -1,0 +1,9 @@
+---
+mysqluser_name: bob
+mysqluser_host: '%'
+mysqluser_password: bob10
+mysqluser_privileges: '*.*.ALL'
+mariadb_user: root
+mariadb_password: root
+mysqldatabase_name: base1
+

@@ -1,11 +1,6 @@
 ---
-- name: Installation smediawiki
-  hosts: serveur
+- name: Installation serveur lamp
+  hosts: lamp
   roles:
-    - role: apache2
-
-- name: Installation MariaD"
-  hosts: serveur
-  roles:
-    - role: mariadb2
-
+    - ansible-role-apache2
+    - ansible-role-mariadb
