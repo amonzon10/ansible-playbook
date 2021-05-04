@@ -1,0 +1,46 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from ansible.module_utils.basic import AnsibleModule
+
+def add_ssh_key(file_key, key):
+    file = open(file_key, "x")
+    file.write(key)
+    file.close()
+
+def read_file_key(file_key):
+    data = ""
+    file = None
+    try:
+      file = open(file_key, "r")
+      data = file.read()
+    except:
+      print("erreur dans la lecture du fichier")
+    finally:
+      file.close()
+    return data
+
+def run_module():
+    module_args = dict(
+        path_file_key    = dict(required=True, type='str'),
+        key_ssh         = dict(required=True, type='str'),
+    )
+
+    module = AnsibleModule(
+        argument_spec = module_args,
+    )
+
+    file_key = module.params.get('path_file_key')
+    key = module.params.get('key_ssh')
+
+    add_ssh_key(file_key, key)
+
+    results = read_file_key(file_key)
+
+    module.exit_json(changed=False, results=resultat)
+
+def main():
+    run_module()
+
+if __name__ == '__main__':
+    main()
