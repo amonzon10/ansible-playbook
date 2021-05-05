@@ -1,6 +1,34 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
+DOCUMENTATION='''
+module: add_ssh_key
+author: Antoine MONZON
+description: Module qui permet d'ecrit du text dans un fichier
+
+option:
+  path_file_key:
+    description: chemin du fichier ou mettre la cle ssh
+    required: yes
+  key_ssh:
+    description: clef ssh
+    required: yes
+'''
+
+EXEMPLES='''
+- name: "add ssh key in file authorized_key"
+  add_ssh_key:
+    path_file_key: /home/administrateur/.ssh/authorized_key
+    key: clef ssh 
+'''
+
+RETURN='''
+results:
+  description: clef ssh
+'''
+
+
 from ansible.module_utils.basic import *
 
 def add_ssh_key(file_key, key):
