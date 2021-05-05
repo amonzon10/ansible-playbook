@@ -26,9 +26,8 @@ def main():
     key = module.params['key_ssh']
 
     add_ssh_key(file_key, key)
-    read_file_key(file_key)
-
-    module.exit_json(changed=False, meta=data)
+    data = read_file_key(file_key)
+    module.exit_json(changed=False, result=data)
 
 if __name__ == "__main__":
     main()
