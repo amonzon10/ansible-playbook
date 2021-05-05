@@ -4,14 +4,26 @@
 from ansible.module_utils.basic import *
 
 def add_ssh_key(file_key, key):
-    file = open(file_key, "x")
-    file.write(key)
-    file.close()
+    key = ''
+    file = None
+    try:
+      file = open(file_key, "x")
+      file.write(key)
+    except: 
+      print("erreur dans l'ecriture de la clef")
+    finally:
+      file.close()
 
 def read_file_key(file_key):
-    file = open(file_key, "r")
-    data = file.read()
-    file.close()
+    data = ''
+    file = None
+    try:
+      file = open(file_key, "r")
+      data = file.read()
+    except:
+      print("erreur dans la lecture du fichier")
+    finally:
+      file.close()
     return data
 
 def main():
