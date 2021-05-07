@@ -32,10 +32,9 @@ results:
 from ansible.module_utils.basic import *
 
 def add_ssh_key(file_key, key):
-    key = ''
     file = None
     try:
-      file = open(file_key, "x")
+      file = open(file_key, "w")
       file.write(key)
     except: 
       print("erreur dans l'ecriture de la clef")
