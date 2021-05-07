@@ -8,20 +8,20 @@
     state: present 
   tags: mariadb
 
-- name: enable and start the service 
-  service: 
+- name: enable and start the service
+  service:
     name: mysql 
     state: started 
     enabled: true 
   tags: mariadb
  
 - name: set root password 
-  ansible.builtin.command: 'mysqladmin -u root password {{ mariadb_password }}' 
-  when: True 
+  command: 'mysqladmin -u root password {{ mariadb_password }}'
+  when: True
   tags: mariadb
 
 - name: remove user
-  ansible.builtin.mysql_user:
+  mysql_user:
     name: ''
     host_all: yes
     state: absent
@@ -30,7 +30,7 @@
   tags: mariadb
 
 - name: manage users 
-  ansible.builtin.mysql_user: 
+  mysql_user: 
     name: '{{ mysqluser_name }}' 
     host: '{{ mysqluser_host }}' 
     password: '{{ mysqluser_password }}' 
@@ -41,7 +41,7 @@
   tags: mariadb
 
 - name: manage database
-  ansible.builtin.mysql_db:
+  mysql_db:
     name: '{{ mysqldatabase_name }}'
     state: present
   tags: mariadb

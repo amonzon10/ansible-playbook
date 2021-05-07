@@ -1,11 +1,11 @@
 ---
 - name: "add clef ssh"
-  hosts: serveur-projet6
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: " ajouter clef ssh dans les clefs autorisées"
-      add_ssh_key:
-        path_file_key: "/home/administrateur/.ssh/authorized_keys"
-        key_ssh: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDH+RFhsJels4tiIM7domsHxDiKQ7hJIqAvqAGuZY1+hjGekLutnVXkb+r4cbmQ6wrbrfH8M9+rn+ZVVWQLWonR28LPQf1YAX0kYmt5nhXMBwDWYLhtor4/7nW4exjN21ZbEru5QLEikyIc5CcmT16/MIfr0i7JYnTQ0yDurr8LPsmxglzxQiATh1v671BeBDwIMhgpwY20Y+xa8pKQeKAuIsnorCxMFzvYRdCozfgpoUPmByLwhw2PufC88CtE/S3LB4e8kRBXekd3F3QTMzsmBx+Z3+Af50qljRuk4mWejp6k1M76hI5+TdLEQ8yY7MXKb2XgfmEy6SgoJYpWoYcMohFS1ULeRX930oa1a4+MLNcr6X6OxUH/HYXo0UySe07dncPVQbPpHC/IZt2KL3FKh6OXpUU7+20YHUwPWn9JeL8/ZB3si2l9VZdRDLErkln7fcgBZHhrkzeK7GTejBmAVONVQD60cimRa7ktzLQMiandtNHnCWRTcxAgNp+sojCHjxctxL/WT6XRH9Ft7P5zgDbNKeGaViPsSvfBtfxBfZonsA/wuw0I11URnpFYnZqdumOZaIsNnQs7gznz0sxSJTRDIpYxdN+URxMHJ8YoRxB4uvoMkbWAOD2trkEFOuwKDfz30e2Q6N3ToVVSTExUCQZzq2hDgNf7FmnwYE0P3w== ansible"
+      add_ssh_key_v2:
+        path_file_key: "/tmp/authorized_keys"
+        key_ssh: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDN6DF+vPgQS/tDT4FmP61NyTLzww3vbTxnH59C1A/YGtfpczdEeZ+QWPHb2Cn2NuTbnxM1+icEXv4gKaW9PAbxb0fDagFdtFuOGIRu20aHUnAPxo5QJaFhCzsfw+v29a6oVZl1YKSP9k+hk1WHDbMeidCGhSiKRV0ClJiUDY7GBKjr5q2GYfs81P83Z/6bQLXj+/7O9YRbW4bGoZS3TsnDLOOBh4TkfPiJCAKg150sBqGoS02I16sYuM7B08THeixKhYEKbgCo67mGY4UGIVtyX4MgUXnE4fbgg2qFjvPlf1rMe+M0L/K5n0qjDnhMBVVMezMJAtjjcf3GDfNYURbJ6caZeDHnW96k3L5k4e6ehAqqMUfOTsvuaIOdGR8e2FSP4c04Z/OSSFDkGWboyMSF1gmb4Te8PKR2Xu1dvlDTkhWF7e7KK81uyo02Ly6X+WinJstgUpoMGu4b4Zk+fRSkMQz36MiwWrKPygxpWAURClv9CX2TXXVGb3r78Vjl2ERWVLxyS2n7sa5OQ0EZs80jSdfhp2MYm2edGTChREcXi8rkNuYXFEhPGP/CDo9zM3+3XokSJuISYGfTutkAEwHTqKFtSNLK01wCBCetd/b9jR4QpqVakTyB/93UU3wjl390tOtRAvu5PuQe8/6K/sbnnabIQRMH6gGHVNXCceSh1w== ansible-projet6"
       register: result
     - debug: var=result
