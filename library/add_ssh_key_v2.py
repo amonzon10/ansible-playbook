@@ -1,6 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+__author__ = "Antoine MONZON"
+__copyright__ = "Copyright (C) 2021 Antoine MONZON"
+__licence__ = "GNU GENERAL PUBLIC LICENSE"
+__version__ = "1.0"
 
 DOCUMENTATION='''
 module: add_ssh_key

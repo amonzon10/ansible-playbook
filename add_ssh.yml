@@ -1,11 +1,11 @@
 ---
 - name: "add clef ssh"
-  hosts: localhost
+  hosts: serveur-projet6
   gather_facts: false
   tasks:
     - name: " ajouter clef ssh dans les clefs autorisées"
       add_ssh_key_v2:
-        path_file_key: "/tmp/authorized_keys"
+        path_file_key: "/home/administrateur/.ssh/authorized_keys"
         key_ssh: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDN6DF+vPgQS/tDT4FmP61NyTLzww3vbTxnH59C1A/YGtfpczdEeZ+QWPHb2Cn2NuTbnxM1+icEXv4gKaW9PAbxb0fDagFdtFuOGIRu20aHUnAPxo5QJaFhCzsfw+v29a6oVZl1YKSP9k+hk1WHDbMeidCGhSiKRV0ClJiUDY7GBKjr5q2GYfs81P83Z/6bQLXj+/7O9YRbW4bGoZS3TsnDLOOBh4TkfPiJCAKg150sBqGoS02I16sYuM7B08THeixKhYEKbgCo67mGY4UGIVtyX4MgUXnE4fbgg2qFjvPlf1rMe+M0L/K5n0qjDnhMBVVMezMJAtjjcf3GDfNYURbJ6caZeDHnW96k3L5k4e6ehAqqMUfOTsvuaIOdGR8e2FSP4c04Z/OSSFDkGWboyMSF1gmb4Te8PKR2Xu1dvlDTkhWF7e7KK81uyo02Ly6X+WinJstgUpoMGu4b4Zk+fRSkMQz36MiwWrKPygxpWAURClv9CX2TXXVGb3r78Vjl2ERWVLxyS2n7sa5OQ0EZs80jSdfhp2MYm2edGTChREcXi8rkNuYXFEhPGP/CDo9zM3+3XokSJuISYGfTutkAEwHTqKFtSNLK01wCBCetd/b9jR4QpqVakTyB/93UU3wjl390tOtRAvu5PuQe8/6K/sbnnabIQRMH6gGHVNXCceSh1w== ansible-projet6"
       register: result
     - debug: var=result
