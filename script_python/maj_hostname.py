@@ -38,7 +38,7 @@ def return_new_hostname():
     return_hostname = ''
     try:
      return_hostname = os.system("hostname")
-    except
+    except:
       print("erreur dans le hostname")
     return return_hostname
 

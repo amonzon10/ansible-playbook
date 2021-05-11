@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: " ajouter clef ssh dans les clefs autorisées"
-      maj_hostname:
+      maj_hostname_test:
         hostname: "bousi"
         add_ip: "192.168.3.41"
         netmask_ip: "255.255.255.0"
