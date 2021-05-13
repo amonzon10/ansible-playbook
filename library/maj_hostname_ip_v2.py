@@ -46,14 +46,11 @@ from ansible.module_utils.basic import *
 
 import os
 
-def set_hostname(hostname):
+def maj_hostname(hostname):
     try:
       os.system("sudo hostnamectl set-hostname " + hostname)
     except: 
       print("erreur dans le changement de nom")
-
-def get_hostname():
-    return os.system("hostname") 
 
 def rename_file_interfaces():
     try:
@@ -108,11 +105,11 @@ def main():
     netmask_ip = module.params['netmask_ip']
     gateway_ip = module.params['gateway_ip']
 
-    if get_hostname() != hostname:
-      set_hostname(hostname)
+    if return_new_hostname() != hostname:
+      maj_hostname(hostname)
       changed = True
 
-    if return_new_ip() != "source /etc/network/interfaces.d/*\nauto lo\niface lo inet loopback\nauto enp0s3\niface enp0s3 inet static\n  address " + add_ip + "\n  netmask " + netmask_ip + "\n  gateway " + gateway_ip:
+    if return_new_ip != "source /etc/network/interfaces.d/*\nauto lo\niface lo inet loopback\nauto enp0s3\niface enp0s3 inet static\n  address " + add_ip + "\n  netmask " + netmask_ip + "\n  gateway " + gateway_ip:
       rename_file_interfaces()
       maj_address_ip(add_ip, netmask_ip, gateway_ip)
       changed = True

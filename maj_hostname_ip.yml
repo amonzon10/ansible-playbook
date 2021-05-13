@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: " changer le hostname et l'adresse ip"
-      maj_hostname:
+      maj_hostname_ip:
         hostname: "bousi"
         add_ip: "192.168.3.41"
         netmask_ip: "255.255.255.0"

@@ -1,5 +1,5 @@
 ---
-- name: install required packages ocs inventory 
+- name: install required packages 
   apt: 
     name: 
       - mariadb-server
