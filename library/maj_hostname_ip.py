@@ -9,7 +9,7 @@ __version__ = "1.0"
 DOCUMENTATION='''
 module: maj_hostname_ip
 author: Antoine MONZON
-description: Module qui permet de changer le nom d'une machine est de changer son ip
+description: Module qui permet de changer le nom d'une machine et de changer son ip
 
 option:
   hostname:
@@ -72,14 +72,6 @@ def maj_address_ip(add_ip, netmask_ip, gateway_ip):
       print("erreur dans la configuration de l'adresse ip")
     finally:
       file.close()
-
-def return_new_hostname():
-    return_hostname = ''
-    try:
-     return_hostname = os.system("hostname")
-    except:
-      print("erreur dans le hostname")
-    return return_hostname
 
 def return_new_ip():
     data = ''
