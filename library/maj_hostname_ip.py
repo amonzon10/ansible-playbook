@@ -104,10 +104,9 @@ def main():
       set_hostname(hostname)
       changed = True
 
-    if return_new_ip() != "source /etc/network/interfaces.d/*\nauto lo\niface lo inet loopback\nauto enp0s3\niface enp0s3 inet static\n  address " + add_ip + "\n  netmask " + netmask_ip + "\n  gateway " + gateway_ip:
-      rename_file_interfaces()
-      maj_address_ip(add_ip, netmask_ip, gateway_ip)
-      changed = True
+    rename_file_interfaces()
+    maj_address_ip(add_ip, netmask_ip, gateway_ip)
+    changed = True
 
     if changed == False:
       module.exit_json(changed=changed, result="Il n'y a pas eu de changement")
