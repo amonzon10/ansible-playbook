@@ -1,12 +1,12 @@
 ---
 - name: "mise a jour du hostname et de l'adresse ip"
-  hosts: serveur-projet6
+  hosts: serveur-projet6, serveur-test
   gather_facts: false
   tasks:
     - name: " changer le hostname et l'adresse ip"
       maj_hostname_ip:
-        hostname: "bousi"
-        add_ip: "192.168.3.41"
+        hostname: "serveur-test"
+        add_ip: "192.168.3.42"
         netmask_ip: "255.255.255.0"
         gateway_ip: "192.168.3.1"
       register: result
