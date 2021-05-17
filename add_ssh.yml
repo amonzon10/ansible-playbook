@@ -1,6 +1,6 @@
 ---
 - name: "add clef ssh"
-  hosts: serveur-projet6, serveur-test
+  hosts: serveur-projet6, serveur-test, serveur-soutenance, serveur-test-soutenance
   gather_facts: false
   tasks:
     - name: " ajouter clef ssh dans les clefs autorisées"
