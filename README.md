@@ -23,7 +23,7 @@ cd ansible-playbook
 
 ### Run
 
-- Mettre à jour le dept
+- Mettre à jour le depot
 
 ```
 git pull
