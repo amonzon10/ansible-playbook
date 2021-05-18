@@ -35,6 +35,7 @@ results:
 
 from ansible.module_utils.basic import *
 
+##ajoute la variable 'key' dans le fichier de la variable 'file_key'
 def add_ssh_key(file_key, key):
     file = None
     try:
@@ -45,6 +46,7 @@ def add_ssh_key(file_key, key):
     finally:
       file.close()
 
+##retourne une variable avec le contenu du fichier de la variable 'file-key'
 def read_file_key(file_key):
     data = ''
     file = None
@@ -56,6 +58,9 @@ def read_file_key(file_key):
       return ''  
     return data
 
+##recupere les valeurs défini dans le playbook
+##ajoute la clef au fichier si son contenu n'y est pas déja
+##renvois les données pour le module ansible
 def main():
     changed = False
     fields = {
