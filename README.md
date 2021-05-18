@@ -1,6 +1,7 @@
 # ansible-playbook
 
-Ce depot est fait pour la formation openclassroom pour le projet6
+Ce depot sert à automatiser des taches répétitives comme ajouter un clef ssh, modifier le nom et l'adresse ip sur un serveur distant.
+Il permet aussi d'automatiser l'installation et de configuration d'un serveur Lamp
 
 ## Comment l'utiliser
 
@@ -40,6 +41,7 @@ ansible-playbook playbook_name.yml
 ### add_ssh.yml
 
 Description: Dépose une clef ssh dans un fichier
+Script: library/add_ssh_key.py
 
 ```
 ansible-playbook add_ssh.key --user administrateur --ask-pass
@@ -48,6 +50,7 @@ ansible-playbook add_ssh.key --user administrateur --ask-pass
 ### maj_hostname_ip.yml
 
 Description: Permet de changer le nom de la machine et son adresse ip
+Script: library/maj_hostname_ip.py
 
 ```
 ansible-playbook maj_hostname_ip.yml
@@ -56,6 +59,7 @@ ansible-playbook maj_hostname_ip.yml
 ### install-serveur.yml
 
 Description: installe et configure apache et mariadb
+Roles: ansible-role-apache2, ansible-role-mariadb
 
 ```
 ansible-playbook install-serveur.yml
