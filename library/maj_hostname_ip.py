@@ -46,15 +46,25 @@ from ansible.module_utils.basic import *
 
 import os
 
+import socket
+
+##Change le nom du host par la variable 'hostname'
 def set_hostname(hostname):
     try:
       os.system("sudo hostnamectl set-hostname " + hostname)
     except: 
       print("erreur dans le changement de nom")
 
+##Recupere le nom du host actuel
 def get_hostname():
-    return os.system("hostname") 
+    data = ''
+    try:
+      data = socket.gethostname()
+    except:
+      print("erreur lors de la recupération du hostname")
+    return data
 
+##renome le fichier /etc/network/interfaces en /etc/network/interfaces.old
 def rename_file_interfaces():
     try:
       old_file = os.path.join("/etc/network/","interfaces")
@@ -63,6 +73,7 @@ def rename_file_interfaces():
     except: 
       print("erreur lors du changement du nom du fichier interface")
 
+##créer un fichier /etc/network/interfaces avec comme le contenu défini avec les variables defini dans le playbook
 def maj_address_ip(add_ip, netmask_ip, gateway_ip):
     file = None
     try:
@@ -73,6 +84,11 @@ def maj_address_ip(add_ip, netmask_ip, gateway_ip):
     finally:
       file.close()
 
+##recupere les données defini dans le playbook
+##change le nom du host s'il n'a pas déja la valeur défini
+##renome le fichier /etc/network/interfaces
+##créé un nouveau fichier /etc/network/interfaces et y insère les données défini dans le playbook
+##renvois les données pour le module
 def return_new_ip():
     data = ''
     file = None
@@ -106,13 +122,12 @@ def main():
 
     rename_file_interfaces()
     maj_address_ip(add_ip, netmask_ip, gateway_ip)
-    changed = True
 
     if changed == False:
-      module.exit_json(changed=changed, result="Il n'y a pas eu de changement")
+      module.exit_json(changed=changed, result="Le nom de la machine n'a pas changé, mais l'adresse ip a bien été inséré")
 
     if changed == True:
-      module.exit_json(changed=changed, result="Changement effectué")
+      module.exit_json(changed=changed, result="Le nom de la machine et l'adresse ip ont été changés")
 
 if __name__ == "__main__":
     main()
