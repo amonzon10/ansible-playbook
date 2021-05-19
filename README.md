@@ -41,6 +41,7 @@ ansible-playbook playbook_name.yml
 ### add_ssh.yml
 
 Description: Dépose une clef ssh dans un fichier
+
 Script: library/add_ssh_key.py
 
 ```
@@ -50,6 +51,7 @@ ansible-playbook add_ssh.key --user administrateur --ask-pass
 ### maj_hostname_ip.yml
 
 Description: Permet de changer le nom de la machine et son adresse ip
+
 Script: library/maj_hostname_ip.py
 
 ```
@@ -59,6 +61,7 @@ ansible-playbook maj_hostname_ip.yml
 ### install-serveur.yml
 
 Description: installe et configure apache et mariadb
+
 Roles: ansible-role-apache2, ansible-role-mariadb
 
 ```
