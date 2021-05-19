@@ -1,6 +1,6 @@
 # ansible-playbook
 
-Ce depot sert à automatiser des taches répétitives comme ajouter un clef ssh, modifier le nom et l'adresse ip sur un serveur distant.
+Ce depot sert à automatiser des taches répétitives comme ajouter une clef ssh, modifier le nom et l'adresse ip sur un serveur distant.
 Il permet aussi d'automatiser l'installation et de configuration d'un serveur Lamp
 
 ## Comment l'utiliser
