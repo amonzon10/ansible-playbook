@@ -1,0 +1,22 @@
+---
+
+- name: download wordpress zip
+  get_url:
+    url: https://fr.wordpress.org/wordpress-5.7.2-fr_FR.zip
+    dest: /tmp/wordpress.zip
+  tags: wordpess
+
+- name: unzip wordpress.zip
+  unarchive:
+    src: /tmp/wordpress.zip
+    dest: /var/www/html/
+    remote_src: yes
+  tags: wordpress
+
+- name: add right for wordpress write in /var/www/wordpress
+  file:
+    path: /var/www/html
+    owner: root
+    group: root
+    mode: '1777'
+  tags: wordpress

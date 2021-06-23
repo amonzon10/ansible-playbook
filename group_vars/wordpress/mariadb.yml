@@ -1,0 +1,9 @@
+---
+mysqluser_name: wordpressuser
+mysqluser_host: '%'
+mysqluser_password: wordpress
+mysqluser_privileges: '*.*:ALL'
+mariadb_user: root
+mariadb_password: root
+mysqldatabase_name: wordpress
+

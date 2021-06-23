@@ -7,6 +7,15 @@
     state: present
   tags: apache2
 
+- name: php installation
+  apt:
+    name: 
+    - php
+    - libapache2-mod-php
+    - php-mysql
+    state: present
+  tags: apache2
+
 #2. Cette tâche active le service Apache
 - name: apache service activation
   service:

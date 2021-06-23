@@ -5,8 +5,8 @@
   tasks:
     - name: " changer le hostname et l'adresse ip"
       maj_hostname_ip:
-        hostname: "serveur-soutenance"
-        add_ip: "192.168.3.31"
+        hostname: "serveur-soutenance-bis"
+        add_ip: "192.168.3.34"
         netmask_ip: "255.255.255.0"
         gateway_ip: "192.168.3.1"
       register: result

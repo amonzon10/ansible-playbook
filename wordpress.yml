@@ -1,0 +1,8 @@
+---
+- name: Installation serveur lamp
+  hosts: lamp, wordpress
+  roles:
+    - ansible-role-common
+    - ansible-role-apache2
+    - ansible-role-mariadb
+    - ansible-role-wordpress
